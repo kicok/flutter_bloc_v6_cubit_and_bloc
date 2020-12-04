@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'package:flutter_bloc_v6_cubit_and_bloc/counter_cubit.dart';
+import 'package:flutter_bloc_v6_cubit_and_bloc/counter_cubit_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -7,13 +11,16 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter bloc v6.x.x',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
+    return BlocProvider<CounterCubit>(
+      create: (context) => CounterCubit(),
+      child: MaterialApp(
+        title: 'Flutter bloc v6.x.x',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+          visualDensity: VisualDensity.adaptivePlatformDensity,
+        ),
+        home: MyHomePage(),
       ),
-      home: MyHomePage(),
     );
   }
 }
@@ -33,7 +40,16 @@ class MyHomePage extends StatelessWidget {
             children: <Widget>[
               RaisedButton(
                 child: Text('Counter Using Cubit'),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return CounterCubitScreen();
+                      },
+                    ),
+                  );
+                },
               ),
               RaisedButton(
                 child: Text('Counter Using Bloc'),
