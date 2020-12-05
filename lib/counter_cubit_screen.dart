@@ -5,7 +5,7 @@ import 'package:flutter_bloc_v6_cubit_and_bloc/counter_cubit.dart';
 class CounterCubitScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final coubtCubit = BlocProvider.of<CounterCubit>(context);
+    final countCubit = BlocProvider.of<CounterCubit>(context);
     return Scaffold(
       appBar: AppBar(
         title: Text('Cubit'),
@@ -31,7 +31,7 @@ class CounterCubitScreen extends StatelessWidget {
             heroTag: null,
             child: Icon(Icons.add),
             onPressed: () {
-              coubtCubit.increment();
+              countCubit.increment();
             },
           ),
           SizedBox(width: 20.0),
@@ -39,7 +39,7 @@ class CounterCubitScreen extends StatelessWidget {
             heroTag: null,
             child: Icon(Icons.remove),
             onPressed: () {
-              coubtCubit.decrement();
+              countCubit.decrement();
             },
           )
         ],
