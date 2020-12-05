@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'package:flutter_bloc_v6_cubit_and_bloc/app_observer.dart';
 import 'package:flutter_bloc_v6_cubit_and_bloc/counter_bloc.dart';
 import 'package:flutter_bloc_v6_cubit_and_bloc/counter_cubit.dart';
 
@@ -8,6 +9,7 @@ import 'package:flutter_bloc_v6_cubit_and_bloc/counter_bloc_screen.dart';
 import 'package:flutter_bloc_v6_cubit_and_bloc/counter_cubit_screen.dart';
 
 void main() {
+  Bloc.observer = AppObserver();
   runApp(MyApp());
 }
 
